@@ -9,10 +9,13 @@ namespace WingsAW
 {
     public class App : Application
     {
+        public static List<string> PhoneNumbers { get; set; }
+
         public App()
         {
+            PhoneNumbers = new List<string>();
             // The root page of your application
-            MainPage = new MainPage();
+            MainPage = new NavigationPage( new MainPage());
             //MainPage = new ContentPage
             //{
             //    Content = new StackLayout

@@ -14,7 +14,7 @@ namespace WingsAW
         public MainPage()
         {
             InitializeComponent();
-            
+
         }
         void OnTranslate(object sender, EventArgs e)
         {
@@ -40,8 +40,17 @@ namespace WingsAW
             {
                 var dialer = DependencyService.Get<IDialer>();
                 if (dialer != null)
+                {
+                    App.PhoneNumbers.Add(translatedNumber);
+                    callHistoryButton.IsEnabled = true;
                     dialer.Dial(translatedNumber);
+                }
             }
+        }
+        void OnCallHistory(object sernder, EventArgs e)
+        {
+            Navigation.PushAsync(new CallHistoryPage());
+            
         }
     }
 }
